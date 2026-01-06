@@ -1,0 +1,151 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║        INSTALLATION GUIDE FOR YOUR SYSTEM                    ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+YOUR SITUATION:
+═══════════════
+You have a system-managed Python environment that prevents 
+direct pip installations to protect your system.
+
+BEST SOLUTION: Use Virtual Environment (Recommended)
+═════════════════════════════════════════════════════════════
+
+Step 1: Create Virtual Environment
+───────────────────────────────────
+python3 -m venv venv
+
+Step 2: Activate Virtual Environment
+─────────────────────────────────────
+source venv/bin/activate
+
+(Your prompt will change to show "(venv)")
+
+Step 3: Install All Dependencies
+─────────────────────────────────
+pip install -r requirements.txt
+pip install PyMuPDF Pillow
+
+Step 4: Verify Installation
+────────────────────────────
+python test_setup.py
+python test_image_support.py
+
+Step 5: Run the Bot
+───────────────────
+python main.py
+
+Step 6: When Done, Deactivate
+──────────────────────────────
+deactivate
+
+═════════════════════════════════════════════════════════════
+
+QUICK METHOD: Use the Setup Script
+═════════════════════════════════════════════════════════════
+
+I created a script that does everything automatically:
+
+./setup_with_venv.sh
+
+This will:
+✓ Create virtual environment
+✓ Activate it
+✓ Install all dependencies
+✓ Install PyMuPDF and Pillow
+✓ Show you how to run the bot
+
+═════════════════════════════════════════════════════════════
+
+ALTERNATIVE: User Install (No Virtual Environment)
+═════════════════════════════════════════════════════════════
+
+If you prefer not to use virtual environment:
+
+pip install --user -r requirements.txt
+pip install --user PyMuPDF Pillow
+
+Then run directly:
+python main.py
+
+═════════════════════════════════════════════════════════════
+
+COMPLETE WORKFLOW WITH VIRTUAL ENVIRONMENT:
+═════════════════════════════════════════════════════════════
+
+# One-time setup
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip install PyMuPDF Pillow
+
+# Configure
+cp .env.example .env
+nano .env  # Add your API key
+
+# Every time you want to use the bot
+source venv/bin/activate
+python main.py
+
+# When done
+deactivate
+
+═════════════════════════════════════════════════════════════
+
+WHY USE VIRTUAL ENVIRONMENT?
+═════════════════════════════════════════════════════════════
+
+✅ Keeps project dependencies isolated
+✅ Doesn't affect system Python
+✅ Easy to reproduce on other machines
+✅ Standard Python best practice
+✅ No permission issues
+✅ Clean uninstall (just delete venv folder)
+
+═════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+═════════════════════════════════════════════════════════════
+
+Issue: "python3 -m venv venv" fails
+Fix: Install python3-venv
+     sudo apt install python3-venv  # Ubuntu/Debian
+
+Issue: Virtual environment not activating
+Fix: Make sure you're in the project directory
+     Check: ls venv/bin/activate should exist
+
+Issue: Still getting errors after activation
+Fix: Upgrade pip first
+     pip install --upgrade pip
+
+═════════════════════════════════════════════════════════════
+
+NEXT STEPS:
+═════════════════════════════════════════════════════════════
+
+Choose one method and run:
+
+METHOD 1 (Easiest):
+  ./setup_with_venv.sh
+
+METHOD 2 (Manual):
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+  pip install PyMuPDF Pillow
+  python main.py
+
+METHOD 3 (User install):
+  pip install --user PyMuPDF Pillow
+  python main.py
+
+═════════════════════════════════════════════════════════════
+
+Questions? Check:
+• README.md - Complete guide
+• SETUP_GUIDE.md - Setup instructions
+• This file - Installation help
+
+═════════════════════════════════════════════════════════════

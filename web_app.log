@@ -1,0 +1,302 @@
+2026-01-06 05:34:13.377 | INFO     | __main__:initialize_assistant:49 - Initializing Gemini Voice Assistant...
+2026-01-06 05:34:13.377 | INFO     | src.voice_assistant:_init_components:43 - Initializing document parser...
+2026-01-06 05:34:13.378 | INFO     | src.sop_loader.image_extractor:__init__:61 - Initialized ImageExtractor with model: gemini-2.0-flash-exp
+2026-01-06 05:34:13.378 | INFO     | src.sop_loader.document_parser:__init__:58 - Image extraction enabled
+2026-01-06 05:34:13.378 | INFO     | src.sop_loader.document_parser:__init__:64 - Initialized DocumentParser with folder: sops
+2026-01-06 05:34:13.378 | INFO     | src.voice_assistant:_init_components:51 - Initializing text chunker...
+2026-01-06 05:34:13.378 | INFO     | src.retrieval.text_chunker:__init__:25 - Initialized TextChunker: size=1000, overlap=200
+2026-01-06 05:34:13.378 | INFO     | src.voice_assistant:_init_components:58 - Initializing vector store...
+2026-01-06 05:34:13.620 | INFO     | src.retrieval.vector_store:__init__:52 - Initialized VectorStore: sop_documents at chroma_db
+2026-01-06 05:34:13.620 | INFO     | src.voice_assistant:_init_components:65 - Initializing RAG engine...
+2026-01-06 05:34:13.620 | INFO     | src.retrieval.rag_engine:__init__:32 - Initialized RAGEngine: top_k=3, threshold=0.7
+2026-01-06 05:34:13.620 | INFO     | src.voice_assistant:_init_components:73 - Initializing Gemini client...
+2026-01-06 05:34:13.621 | INFO     | src.gemini_integration.gemini_client:__init__:51 - Initialized GeminiClient with model: gemini-2.5-flash-native-audio-preview-12-2025
+2026-01-06 05:34:13.621 | INFO     | src.voice_assistant:_init_components:80 - Initializing Gemini Live API handler...
+2026-01-06 05:34:13.621 | INFO     | src.gemini_integration.live_api_handler:__init__:46 - Initialized GeminiLiveAPIHandler with model: gemini-2.5-flash-native-audio-preview-12-2025
+2026-01-06 05:34:13.621 | INFO     | src.voice_assistant:_init_components:87 - Initializing audio processor...
+2026-01-06 05:34:13.622 | INFO     | src.voice_handler.audio_processor:__init__:42 - Initialized AudioProcessor: 16000Hz, 1ch, int16
+2026-01-06 05:34:13.622 | INFO     | src.voice_assistant:_init_components:95 - Initializing speech recognizer...
+2026-01-06 05:34:13.622 | INFO     | src.voice_handler.speech_recognition:__init__:30 - Initialized SpeechRecognizer with model: gemini-2.5-flash-native-audio-preview-12-2025
+2026-01-06 05:34:13.622 | INFO     | src.voice_assistant:_init_components:102 - Initializing text-to-speech...
+2026-01-06 05:34:13.770 | INFO     | src.voice_handler.text_to_speech:__init__:34 - Initialized TextToSpeech: en-IN
+2026-01-06 05:34:13.771 | INFO     | src.voice_assistant:_init_components:110 - All components initialized successfully
+2026-01-06 05:34:13.771 | INFO     | src.voice_assistant:__init__:37 - GeminiVoiceAssistant initialized successfully
+2026-01-06 05:34:13.771 | INFO     | __main__:initialize_assistant:51 - Voice Assistant initialized successfully
+2026-01-06 05:34:13.775 | INFO     | __main__:<module>:252 - Starting Gemini Voice Bot Web Server on 0.0.0.0:5000
+2026-01-06 05:34:13.776 | INFO     | __main__:<module>:253 - Access from external IP will be available
+2026-01-06 05:34:33.131 | INFO     | __main__:handle_connect:206 - Client connected: 7zKpnqW7_3mxjztUAAAB
+2026-01-06 05:34:35.610 | INFO     | __main__:load_sops:100 - Loading SOPs (force_rebuild=False)...
+2026-01-06 05:34:35.611 | INFO     | src.voice_assistant:load_and_index_sops:126 - Loading and indexing SOP documents...
+2026-01-06 05:34:35.613 | INFO     | src.voice_assistant:load_and_index_sops:133 - Using existing index with 57 documents
+2026-01-06 05:34:56.510 | INFO     | __main__:load_sops:100 - Loading SOPs (force_rebuild=True)...
+2026-01-06 05:34:56.510 | INFO     | src.voice_assistant:load_and_index_sops:126 - Loading and indexing SOP documents...
+2026-01-06 05:34:56.512 | INFO     | src.voice_assistant:load_and_index_sops:141 - Loading documents from SOP folder...
+2026-01-06 05:34:56.512 | INFO     | src.sop_loader.document_parser:load_all_documents:82 - Found 2 files in SOP folder
+2026-01-06 05:34:56.852 | INFO     | src.sop_loader.document_parser:load_all_documents:90 - Loaded 1 text chunks from tvs-sop-2.pdf
+2026-01-06 05:34:56.853 | INFO     | src.sop_loader.document_parser:_extract_images_from_document:217 - Extracting images from tvs-sop-2.pdf...
+2026-01-06 05:34:56.910 | INFO     | src.sop_loader.image_extractor:extract_images_from_pdf:118 - Extracted 145 images from tvs-sop-2.pdf
+2026-01-06 05:34:56.910 | INFO     | src.sop_loader.image_extractor:process_document_images:214 - Filtered to 20 significant images (>=100px)
+2026-01-06 05:35:02.433 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:07.267 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:10.796 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:15.838 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:21.119 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:26.277 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:30.999 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:36.899 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:43.151 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:48.659 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:53.526 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:35:53.818 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 6
+}
+]
+2026-01-06 05:35:54.066 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 5
+}
+]
+2026-01-06 05:35:54.371 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 5
+}
+]
+2026-01-06 05:35:54.587 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 5
+}
+]
+2026-01-06 05:35:54.869 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 5
+}
+]
+2026-01-06 05:35:55.147 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2026-01-06 05:35:55.392 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2026-01-06 05:35:55.602 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2026-01-06 05:35:55.802 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2026-01-06 05:35:55.802 | INFO     | src.sop_loader.image_extractor:process_document_images:234 - Successfully processed 20 images from tvs-sop-2.pdf
+2026-01-06 05:35:55.802 | INFO     | src.sop_loader.document_parser:_extract_images_from_document:228 - Image extraction stats: {'total_images': 20, 'images_with_descriptions': 11, 'pages_with_images': 1, 'avg_width': 260.7, 'avg_height': 205.95}
+2026-01-06 05:35:55.803 | INFO     | src.sop_loader.document_parser:load_all_documents:96 - Loaded 20 image chunks from tvs-sop-2.pdf
+2026-01-06 05:35:55.807 | INFO     | src.sop_loader.document_parser:load_all_documents:90 - Loaded 1 text chunks from tvs-sop-1.pdf
+2026-01-06 05:35:55.807 | INFO     | src.sop_loader.document_parser:_extract_images_from_document:217 - Extracting images from tvs-sop-1.pdf...
+2026-01-06 05:35:55.810 | INFO     | src.sop_loader.image_extractor:extract_images_from_pdf:118 - Extracted 2 images from tvs-sop-1.pdf
+2026-01-06 05:35:55.811 | INFO     | src.sop_loader.image_extractor:process_document_images:214 - Filtered to 2 significant images (>=100px)
+2026-01-06 05:35:59.806 | ERROR    | src.sop_loader.image_extractor:analyze_image_with_gemini:175 - Error analyzing image from page 1: 429 You exceeded your current quota. Please migrate to Gemini 2.5 Flash Image (models/gemini-2.5-flash-image) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_requests_per_model"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash-exp"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+}
+]
+2026-01-06 05:36:02.905 | INFO     | src.sop_loader.image_extractor:analyze_image_with_gemini:167 - Generated description for image from page 1
+2026-01-06 05:36:02.912 | INFO     | src.sop_loader.image_extractor:process_document_images:234 - Successfully processed 2 images from tvs-sop-1.pdf
+2026-01-06 05:36:02.912 | INFO     | src.sop_loader.document_parser:_extract_images_from_document:228 - Image extraction stats: {'total_images': 2, 'images_with_descriptions': 1, 'pages_with_images': 1, 'avg_width': 2454.0, 'avg_height': 1728.0}
+2026-01-06 05:36:02.912 | INFO     | src.sop_loader.document_parser:load_all_documents:96 - Loaded 2 image chunks from tvs-sop-1.pdf
+2026-01-06 05:36:02.913 | INFO     | src.sop_loader.document_parser:load_all_documents:103 - Total chunks loaded: 24
+2026-01-06 05:36:02.913 | INFO     | src.voice_assistant:load_and_index_sops:164 - Chunking documents...
+2026-01-06 05:36:02.913 | INFO     | src.retrieval.text_chunker:chunk_documents:106 - Chunked 24 documents into 56 chunks
+2026-01-06 05:36:02.914 | INFO     | src.voice_assistant:load_and_index_sops:168 - Building vector index with 56 chunks...
+2026-01-06 05:36:02.914 | INFO     | src.retrieval.vector_store:rebuild_index:177 - Rebuilding vector index...
+2026-01-06 05:36:02.949 | INFO     | src.retrieval.vector_store:clear_collection:165 - Cleared collection: sop_documents
+2026-01-06 05:36:13.766 | INFO     | src.retrieval.vector_store:add_documents:94 - Added 56 documents to vector store
+2026-01-06 05:36:13.767 | INFO     | src.retrieval.vector_store:rebuild_index:180 - Index rebuild complete
+2026-01-06 05:36:13.767 | INFO     | src.voice_assistant:load_and_index_sops:181 - Indexing complete: {'status': 'success', 'document_count': 56, 'source_documents': 2, 'rebuilt': True}
+2026-01-06 05:36:13.774 | INFO     | __main__:handle_disconnect:216 - Client disconnected: 7zKpnqW7_3mxjztUAAAB
+2026-01-06 05:36:13.955 | INFO     | __main__:handle_connect:206 - Client connected: zoDK_d9cmLgSI440AAAF
+2026-01-06 05:41:02.278 | INFO     | __main__:handle_disconnect:216 - Client disconnected: zoDK_d9cmLgSI440AAAF
+2026-01-06 05:41:02.443 | INFO     | __main__:handle_connect:206 - Client connected: szU59Or6ZHf67QrhAAAH
+2026-01-06 05:41:03.131 | INFO     | __main__:handle_disconnect:216 - Client disconnected: szU59Or6ZHf67QrhAAAH
+2026-01-06 05:41:03.307 | INFO     | __main__:handle_connect:206 - Client connected: qgQoLcqmZXobfrdJAAAJ
+2026-01-06 05:41:16.355 | INFO     | __main__:handle_connect:206 - Client connected: 415lH2TbvrucHaP6AAAL
+2026-01-06 05:41:23.748 | INFO     | __main__:ask_question:127 - Processing question: hi
+2026-01-06 05:41:23.748 | INFO     | src.voice_assistant:process_text_query:198 - Processing query: hi
+2026-01-06 05:41:24.148 | INFO     | src.retrieval.vector_store:search:143 - Found 0 matching documents for query
+2026-01-06 05:41:24.148 | INFO     | src.retrieval.rag_engine:retrieve_context:52 - No relevant documents found for query: hi...
+2026-01-06 05:41:24.149 | INFO     | src.voice_assistant:process_text_query:205 - No relevant SOP information found
+2026-01-06 05:41:37.252 | INFO     | __main__:ask_question:127 - Processing question: what SOP you have
+2026-01-06 05:41:37.252 | INFO     | src.voice_assistant:process_text_query:198 - Processing query: what SOP you have
+2026-01-06 05:41:37.622 | INFO     | src.retrieval.vector_store:search:143 - Found 0 matching documents for query
+2026-01-06 05:41:37.622 | INFO     | src.retrieval.rag_engine:retrieve_context:52 - No relevant documents found for query: what SOP you have...
+2026-01-06 05:41:37.622 | INFO     | src.voice_assistant:process_text_query:205 - No relevant SOP information found
+2026-01-06 05:41:47.493 | INFO     | __main__:ask_question:127 - Processing question: what can you answer
+2026-01-06 05:41:47.493 | INFO     | src.voice_assistant:process_text_query:198 - Processing query: what can you answer
+2026-01-06 05:41:47.860 | INFO     | src.retrieval.vector_store:search:143 - Found 0 matching documents for query
+2026-01-06 05:41:47.861 | INFO     | src.retrieval.rag_engine:retrieve_context:52 - No relevant documents found for query: what can you answer...
+2026-01-06 05:41:47.861 | INFO     | src.voice_assistant:process_text_query:205 - No relevant SOP information found
+2026-01-06 05:52:21.604 | INFO     | __main__:handle_disconnect:216 - Client disconnected: 415lH2TbvrucHaP6AAAL
+2026-01-06 05:52:21.614 | INFO     | __main__:handle_disconnect:216 - Client disconnected: qgQoLcqmZXobfrdJAAAJ

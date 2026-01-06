@@ -1,0 +1,21 @@
+# Web Application Dependencies for Gemini Voice Bot
+
+# Web Framework
+Flask>=3.0.0
+Flask-CORS>=4.0.0
+Flask-SocketIO>=5.3.5
+
+# Web Server
+gunicorn>=21.2.0
+eventlet>=0.33.3
+
+# Security
+python-dotenv>=1.0.0
+
+# Already included in main requirements.txt:
+# google-generativeai
+# chromadb
+# PyPDF2
+# python-docx
+# PyMuPDF
+# Pillow
