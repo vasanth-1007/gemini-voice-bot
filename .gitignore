@@ -73,3 +73,14 @@ temp/
 # OS
 Thumbs.db
 .DS_Store
+
+# Backup files
+*.backup
+.env.backup
+
+# Test files
+test_*.py
+
+# SOP files (may contain proprietary information)
+sops/*.pdf
+
