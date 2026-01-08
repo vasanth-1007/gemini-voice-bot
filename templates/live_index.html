@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Live Voice Bot - Real-time Communication</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/live_style.css') }}">
+    
+    <!-- Socket.IO -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>🎤 Gemini Live Voice Bot</h1>
+                <p>Real-time Voice Communication in Tanglish</p>
+                <div class="status-indicator">
+                    <span id="status-dot" class="status-dot"></span>
+                    <span id="status-text">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Live Voice Session Card -->
+            <section class="live-session-card">
+                <div class="live-header">
+                    <h2>🎙️ Live Voice Session</h2>
+                    <div class="live-status">
+                        <span id="live-status-dot" class="status-dot"></span>
+                        <span id="live-status-text">Not Connected</span>
+                    </div>
+                </div>
+                
+                <div class="live-controls">
+                    <button id="start-live-btn" class="btn btn-primary btn-large">
+                        <span class="btn-icon">▶️</span>
+                        Start Live Session
+                    </button>
+                    
+                    <button id="stop-live-btn" class="btn btn-danger btn-large" style="display: none;">
+                        <span class="btn-icon">⏹️</span>
+                        Stop Session
+                    </button>
+                    
+                    <button id="toggle-mic-btn" class="btn btn-secondary" style="display: none;">
+                        <span class="btn-icon" id="mic-icon">🎤</span>
+                        <span id="mic-text">Mute</span>
+                    </button>
+                </div>
+                
+                <div class="live-info">
+                    <div class="info-item">
+                        <span class="info-icon">🔊</span>
+                        <span id="audio-status">Microphone: Ready</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📡</span>
+                        <span id="connection-status">Connection: Standby</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <span id="session-duration">Duration: 0:00</span>
+                    </div>
+                </div>
+                
+                <!-- Audio Visualization -->
+                <div class="audio-visualizer">
+                    <canvas id="visualizer-canvas" width="800" height="100"></canvas>
+                </div>
+                
+                <div class="live-instructions">
+                    <h3>📝 How to Use:</h3>
+                    <ol>
+                        <li>Click "Start Live Session" to begin</li>
+                        <li>Allow microphone access when prompted</li>
+                        <li>Speak naturally - the bot will respond in real-time</li>
+                        <li>Your voice is streamed to Gemini Live API</li>
+                        <li>Get instant Tanglish voice responses</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Conversation Transcript -->
+            <section class="transcript-section">
+                <div class="transcript-header">
+                    <h3>💬 Conversation Transcript</h3>
+                    <button id="clear-transcript-btn" class="btn-icon-only">🗑️</button>
+                </div>
+                <div id="transcript" class="transcript-content">
+                    <div class="welcome-message">
+                        <h3>Welcome to Live Voice Chat! 🎤</h3>
+                        <p>Start a live session to have real-time conversations with the bot.</p>
+                        <ul>
+                            <li>🗣️ Natural conversation - no waiting</li>
+                            <li>🔄 Bidirectional streaming</li>
+                            <li>📸 Understands your SOPs with images</li>
+                            <li>💬 Responds in Tanglish</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📄</div>
+                        <div class="stat-info">
+                            <h3 id="doc-count">-</h3>
+                            <p>Documents Indexed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔴</div>
+                        <div class="stat-info">
+                            <h3 id="session-count">0</h3>
+                            <p>Active Sessions</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-info">
+                            <h3>Live API</h3>
+                            <p>Real-time Mode</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="actions-section">
+                <button id="load-sops-btn" class="btn btn-primary">
+                    <span class="btn-icon">📚</span>
+                    Load SOPs
+                </button>
+                <button id="refresh-stats-btn" class="btn btn-secondary">
+                    <span class="btn-icon">📊</span>
+                    Refresh Stats
+                </button>
+            </section>
+
+            <!-- Text Chat (Alternative) -->
+            <section class="chat-section">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2>💬 Text Chat (Alternative)</h2>
+                        <button id="clear-chat-btn" class="btn-icon-only">🗑️</button>
+                    </div>
+                    
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="info-message">
+                            Use text chat when live voice is not available
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="question-input" 
+                                placeholder="Type your question here..."
+                                class="text-input"
+                            >
+                            <button id="send-btn" class="btn btn-primary">
+                                <span class="btn-icon">📤</span>
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Powered by Gemini 2.0 Flash Live API • Real-time Bidirectional Streaming • Tanglish Responses</p>
+            <p class="footer-note">🎤 Natural voice conversations with SOP knowledge</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p id="loading-text">Processing...</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/live_app.js') }}"></script>
+</body>
+</html>

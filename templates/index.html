@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Voice Bot - SOP Assistant</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Socket.IO -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>🎤 Gemini Voice Bot</h1>
+                <p>SOP Assistant in Tanglish</p>
+                <div class="status-indicator">
+                    <span id="status-dot" class="status-dot"></span>
+                    <span id="status-text">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📄</div>
+                        <div class="stat-info">
+                            <h3 id="doc-count">-</h3>
+                            <p>Documents Indexed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-info">
+                            <h3 id="image-status">-</h3>
+                            <p>Image Support</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤖</div>
+                        <div class="stat-info">
+                            <h3 id="model-name">Gemini AI</h3>
+                            <p>AI Model</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="actions-section">
+                <button id="load-sops-btn" class="btn btn-primary">
+                    <span class="btn-icon">📚</span>
+                    Load SOPs
+                </button>
+                <button id="rebuild-index-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🔄</span>
+                    Rebuild Index
+                </button>
+                <button id="refresh-stats-btn" class="btn btn-secondary">
+                    <span class="btn-icon">📊</span>
+                    Refresh Stats
+                </button>
+            </section>
+
+            <!-- Chat Interface -->
+            <section class="chat-section">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2>💬 Ask Questions</h2>
+                        <button id="clear-chat-btn" class="btn-icon-only" title="Clear Chat">
+                            🗑️
+                        </button>
+                    </div>
+                    
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="welcome-message">
+                            <h3>Welcome to Gemini Voice Bot! 👋</h3>
+                            <p>Ask me anything about your SOPs and I'll respond in Tanglish.</p>
+                            <ul>
+                                <li>💬 Type your question below</li>
+                                <li>🎤 Or upload an audio file</li>
+                                <li>📸 I can understand images in your PDFs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="question-input" 
+                                placeholder="Type your question here... (e.g., How to submit leave request?)"
+                                class="text-input"
+                            >
+                            <button id="send-btn" class="btn btn-primary">
+                                <span class="btn-icon">📤</span>
+                                Send
+                            </button>
+                        </div>
+                        
+                        <div class="audio-upload-section">
+                            <label for="audio-upload" class="btn btn-secondary">
+                                <span class="btn-icon">🎤</span>
+                                Upload Audio (WAV)
+                            </label>
+                            <input 
+                                type="file" 
+                                id="audio-upload" 
+                                accept=".wav,audio/wav"
+                                style="display: none;"
+                            >
+                            <span id="audio-filename" class="audio-filename"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples Section -->
+            <section class="examples-section">
+                <h3>📝 Example Questions</h3>
+                <div class="examples-grid">
+                    <button class="example-btn" data-question="How do I submit a leave request?">
+                        How do I submit a leave request?
+                    </button>
+                    <button class="example-btn" data-question="What is the expense reimbursement process?">
+                        What is the expense reimbursement process?
+                    </button>
+                    <button class="example-btn" data-question="Who should I contact for IT support?">
+                        Who should I contact for IT support?
+                    </button>
+                    <button class="example-btn" data-question="What does the escalation flowchart show?">
+                        What does the escalation flowchart show?
+                    </button>
+                    <button class="example-btn" data-question="What are the remote work guidelines?">
+                        What are the remote work guidelines?
+                    </button>
+                    <button class="example-btn" data-question="How to reset password in the portal?">
+                        How to reset password in the portal?
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Powered by Gemini AI • Responds in Tanglish • Image-Heavy SOPs Supported</p>
+            <p class="footer-note">Built with ❤️ for enterprise SOP assistance</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p id="loading-text">Processing...</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
